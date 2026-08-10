@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiying Liu - Homepage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            display: flex;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            gap: 50px;
+        }
+
+        .sidebar {
+            flex: 0 0 260px;
+            text-align: center;
+        }
+        
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .name {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #4f4f4f;
+            margin-bottom: 5px;
+        }
+        
+        .university {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+        
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin-left: 20px;
+        }
+        
+        .contact-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 1.05rem;
+            color: #444;
+        }
+        
+        .contact-list i {
+            width: 30px;
+            color: #555;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        
+        .contact-list a {
+            color: #444;
+            text-decoration: none;
+        }
+        
+        .contact-list a:hover {
+            color: #0366d6;
+            text-decoration: underline;
+        }
+
+        .main-content {
+            flex: 1;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        
+        .about-text {
+            font-size: 1.05rem;
+            margin-bottom: 40px;
+            text-align: justify;
+        }
+
+        .item-container {
+            margin-bottom: 25px;
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+        
+        .item-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+        
+        .item-date {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .item-subtitle {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+        .item-details {
+            padding-left: 20px;
+            margin: 0;
+        }
+        
+        .item-details li {
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .sidebar {
+                flex: none;
+                width: 100%;
+            }
+            .contact-list {
+                display: inline-block;
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="sidebar">
+            <img src="photo.jpg" alt="Shiying Liu" class="profile-img">
+            <div class="name">柳诗颖<br>Shiying Liu</div>
+            <div class="university">Beijing Normal University</div>
+            
+            <ul class="contact-list">
+                <li><i class="fa-solid fa-location-dot"></i> Beijing, China</li>
+                <li><i class="fa-solid fa-envelope"></i> <a href="mailto:1830074786@qq.com">Email</a></li>
+                <li><i class="fa-brands fa-github"></i> <a href="https://github.com/shiyi0641-coder" target="_blank">Github</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            
+            <h2 class="section-title">🌟 自我介绍 (About Me)</h2>
+            <div class="about-text">
+                <p>你好！我是柳诗颖，目前在北京师范大学攻读心理学硕士学位。</p>
+                <p>我的核心兴趣在于探索心理学理论与前沿 AI 技术的结合。在过往的经历中，我不仅在学术上专注于社会认知发展，同时也在快手、中国电子云等企业积累了丰富的 AI 产品设计与用户研究经验。我致力于通过数据驱动和 AI 赋能，打造提升效率与用户体验的创新产品解决方案。</p>
+            </div>
+
+            <h2 class="section-title">🎓 教育经历 (Education)</h2>
+            
+            <div class="item-container">
+                <div class="item-header">
+                    <span class="item-title">北京师范大学</span>
+                    <span class="item-date">2024.09 - 2027.06</span>
+                </div>
+                <div class="item-subtitle">心理学硕士</div>
+                <ul class="item-details">
+                    <li>主修课程：编程、社会认知发展、ERP原理与技术 (GPA: 86.4/100)</li>
+                    <li>学术荣誉：校级二等奖学金</li>
+                </ul>
+            </div>
+
+            <div class="item-container">
+                <div class="item-header">
+                    <span class="item-title">浙江师范大学</span>
+                    <span class="item-date">2020.09 - 2024.06</span>
+                </div>
+                <div class="item-subtitle">应用心理学 | 本科</div>
+                <ul class="item-details">
+                    <li>主修课程：编程、心理统计(SPSS)、现代测量、多元统计等 (GPA: 3.95/5.0)</li>
+                    <li>荣誉奖项：省优秀毕业生、省政府奖学金(2年)、连续3年校三好学生及一等奖学金</li>
+                </ul>
+            </div>
+
+            <h2 class="section-title">🚀 核心作品与项目 (Core Projects)</h2>
+            
+            <div class="item-container">
+                <div class="item-header">
+                    <span class="item-title">ResearchLab — 用研数据分析平台</span>
+                </div>
+                <div class="item-subtitle">核心产品设计</div>
+                <ul class="item-details">
+                    <li>负责用研平台整体产品设计，聚焦效率提升与体验统一，主导数据分析看板、业务提问自动生成问卷SOP等关键模块的定义与原型输出。</li>
+                    <li>将 Vibe Coding 能力引入工作流，平台自动生成可交互的分析工具或数据视图。</li>
+                    <li>将定制化需求响应时间从天级缩短至小时级，实现从问卷生成、数据清洗、加权分析到报告产出的全链路闭环。</li>
+                </ul>
+            </div>
+
+            <div class="item-container">
+                <div class="item-header">
+                    <span class="item-title">心理学文献精读助教 (AI Agent)</span>
+                </div>
+                <div class="item-subtitle">项目负责人：柳诗颖</div>
+                <ul class="item-details">
+                    <li><strong>产品定位：</strong>专攻心理学文献阅读行为实验难题的C端产品，核心目标是把阅读一篇文献提炼核心实验设计的时间从30分钟大幅缩短到1分钟。</li>
+                    <li><strong>核心功能：</strong>支持用户直接丢入文献的 PDF 网页链接系统自动抓取文本。能够结构化提取被试群体特征、自变量干预周期及核心因变量。</li>
+                    <li><strong>工作流构建：</strong>通过大模型节点思维链与强约束执行反向指令，智能识别并过滤掉 EEG、fMRI 等非核心生理数据噪音。接入 markdown_to_word 插件将结构化文本无缝打包成 .docx 格式文件并提供一键下载。</li>
+                </ul>
+            </div>
+            
+            <div class="item-container">
+                <div class="item-header">
+                    <span class="item-title">走心驿站 (儿童青少年心理危机干预平台)</span>
+                </div>
+                <div class="item-subtitle">产品经理</div>
+                <ul class="item-details">
+                    <li>执行并剖析超 30,000 份定量问卷与定性深度访谈，提炼并规划“学生心理画像”等核心模块并撰写 MRD。</li>
+                    <li>推动系统在浙江省内多地中小学实际部署，斩获“挑战杯”省级核心奖项。</li>
+                </ul>
+            </div>
+
+            <div class="item-container">
+                <div class="item-header">
+                    <span class="item-title">社团招新智能匹配平台</span>
+                </div>
+                <div class="item-subtitle">产品负责人</div>
+                <ul class="item-details">
+                    <li>基于低代码平台完成双边匹配系统从0到1落地，设计基于兴趣标签的向量推荐引擎。</li>
+                    <li>搭建集成自动邀约与状态流转逻辑的拖拽式追踪看板 (ATS)。</li>
+                </ul>
+            </div>
+
+            <h2 class="section-title">💼 实习经历 (Experience)</h2>
+            
+            <div class="item-container">
+                <div class="item-header">
+                    <span class="item-title">快手</span>
+                    <span class="item-date">2026.04 - 2026.08</span>
+                </div>
+                <div class="item-subtitle">用户研究</div>
+                <ul class="item-details">
+                    <li>参与万粉+创作者满意度追踪调研，系统性分析 AIGC 创作者群体在内容生产流程等方面的差异化需求与痛点。</li>
+                    <li>负责世界杯期间用户行为与态度调研，为版权采买决策与赛事运营策略提供量化依据。</li>
+                </ul>
+            </div>
+
+            <div class="item-container">
+                <div class="item-header">
+                    <span class="item-title">中国电子云计算技术有限公司</span>
+                    <span class="item-date">2025.11 - 2026.02</span>
+                </div>
+                <div class="item-subtitle">AI产品经理</div>
+                <ul class="item-details">
+                    <li>参与“招投标合同生成”与“合同AI智能评估”两大核心功能模块的需求定义与原型设计 (PRD撰写)。</li>
+                    <li>深度参与技术需求评审，保障了产品功能从场景化设想到技术实现的准确落地。</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
