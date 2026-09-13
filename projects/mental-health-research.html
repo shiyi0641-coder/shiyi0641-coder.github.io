@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数“智”赋能下的心理健康教育服务新模式 | Case Study</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+                Arial, sans-serif;
+            background: #f7f7f5;
+            color: #171717;
+            line-height: 1.75;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .page {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 32px 80px;
+        }
+
+        /* ---------- Navigation ---------- */
+
+        .topbar {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #deded9;
+        }
+
+        .back-link {
+            font-size: 14px;
+            color: #555;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: #000;
+        }
+
+        .top-label {
+            font-size: 13px;
+            color: #888;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* ---------- Hero ---------- */
+
+        .hero {
+            padding: 88px 0 76px;
+            max-width: 950px;
+        }
+
+        .project-number {
+            font-size: 13px;
+            color: #8a8a84;
+            letter-spacing: 0.12em;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 72px);
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+            font-weight: 650;
+            margin-bottom: 26px;
+        }
+
+        .hero-subtitle {
+            max-width: 760px;
+            font-size: 20px;
+            color: #5f5f5a;
+            line-height: 1.65;
+            margin-bottom: 34px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 34px;
+        }
+
+        .tag {
+            border: 1px solid #d7d7d1;
+            background: #fff;
+            padding: 7px 13px;
+            border-radius: 999px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .prd-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #171717;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .prd-button:hover {
+            background: #3b3b3b;
+            transform: translateY(-1px);
+        }
+
+        /* ---------- Meta ---------- */
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid #dcdcd7;
+            border-bottom: 1px solid #dcdcd7;
+            margin-bottom: 90px;
+        }
+
+        .meta-item {
+            padding: 24px 20px;
+            border-right: 1px solid #dcdcd7;
+        }
+
+        .meta-item:last-child {
+            border-right: none;
+        }
+
+        .meta-label {
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 7px;
+        }
+
+        .meta-value {
+            font-size: 15px;
+            color: #222;
+        }
+
+        /* ---------- Sections ---------- */
+
+        section {
+            padding: 82px 0;
+            border-bottom: 1px solid #deded9;
+        }
+
+        .section-head {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 70px;
+            margin-bottom: 50px;
+        }
+
+        .section-index {
+            font-size: 13px;
+            color: #999;
+            letter-spacing: 0.1em;
+        }
+
+        .section-title {
+            font-size: 34px;
+            line-height: 1.3;
+            letter-spacing: -0.025em;
+            font-weight: 600;
+        }
+
+        .section-intro {
+            margin-top: 15px;
+            color: #777;
+            font-size: 15px;
+            max-width: 650px;
+        }
+
+        .content {
+            margin-left: 330px;
+            max-width: 720px;
+        }
+
+        .content p {
+            margin-bottom: 20px;
+            color: #444;
+            font-size: 16px;
+        }
+
+        /* ---------- Research Question ---------- */
+
+        .question-box {
+            background: #fff;
+            border: 1px solid #deded8;
+            border-radius: 12px;
+            padding: 34px;
+            margin-top: 25px;
+        }
+
+        .question-box h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .question-box p {
+            margin-bottom: 0;
+        }
+
+        /* ---------- Research Design ---------- */
+
+        .research-flow {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 45px;
+        }
+
+        .flow-card {
+            background: #fff;
+            border: 1px solid #deded8;
+            border-radius: 10px;
+            padding: 23px;
+            min-height: 150px;
+        }
+
+        .flow-number {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 15px;
+        }
+
+        .flow-card h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .flow-card p {
+            font-size: 13px;
+            color: #777;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .method-card {
+            background: #fff;
+            padding: 26px;
+            border-radius: 10px;
+            border: 1px solid #deded8;
+        }
+
+        .method-card h3 {
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .method-card p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        /* ---------- Findings ---------- */
+
+        .finding-list {
+            display: grid;
+            gap: 18px;
+        }
+
+        .finding {
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            gap: 20px;
+            background: #fff;
+            border: 1px solid #deded8;
+            border-radius: 10px;
+            padding: 28px;
+        }
+
+        .finding-number {
+            font-size: 26px;
+            font-weight: 600;
+            color: #aaa;
+        }
+
+        .finding h3 {
+            font-size: 19px;
+            margin-bottom: 9px;
+        }
+
+        .finding p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        /* ---------- Data highlight ---------- */
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        .data-card {
+            background: #171717;
+            color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        .data-number {
+            font-size: 38px;
+            line-height: 1;
+            font-weight: 650;
+            margin-bottom: 13px;
+        }
+
+        .data-label {
+            font-size: 14px;
+            color: #c9c9c9;
+            line-height: 1.5;
+        }
+
+        /* ---------- Solution ---------- */
+
+        .solution-stack {
+            display: grid;
+            gap: 16px;
+        }
+
+        .solution-item {
+            display: grid;
+            grid-template-columns: 210px 1fr;
+            gap: 30px;
+            padding: 27px 0;
+            border-top: 1px solid #deded9;
+        }
+
+        .solution-item:last-child {
+            border-bottom: 1px solid #deded9;
+        }
+
+        .solution-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .solution-description {
+            color: #666;
+            font-size: 15px;
+        }
+
+        /* ---------- Framework ---------- */
+
+        .framework {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .framework-card {
+            background: #fff;
+            border: 1px solid #deded8;
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        .framework-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .framework-card p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        /* ---------- Outcomes ---------- */
+
+        .outcome-box {
+            background: #fff;
+            border: 1px solid #deded8;
+            border-radius: 12px;
+            padding: 36px;
+        }
+
+        .outcome-box h3 {
+            font-size: 21px;
+            margin-bottom: 15px;
+        }
+
+        .outcome-box p {
+            color: #555;
+            margin-bottom: 18px;
+        }
+
+        .case-list {
+            list-style: none;
+            display: grid;
+            gap: 11px;
+            margin-top: 20px;
+        }
+
+        .case-list li {
+            position: relative;
+            padding-left: 20px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .case-list li::before {
+            content: "•";
+            position: absolute;
+            left: 2px;
+            color: #999;
+        }
+
+        /* ---------- My Role ---------- */
+
+        .role-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .role-card {
+            background: #fff;
+            border: 1px solid #deded8;
+            border-radius: 10px;
+            padding: 28px;
+        }
+
+        .role-card h3 {
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .role-card p {
+            color: #666;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* ---------- Document ---------- */
+
+        .document-section {
+            padding: 90px 0 30px;
+            border-bottom: none;
+        }
+
+        .document-box {
+            background: #171717;
+            color: #fff;
+            border-radius: 14px;
+            padding: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .document-box h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .document-box p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .document-link {
+            flex-shrink: 0;
+            background: #fff;
+            color: #171717;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: transform 0.2s ease;
+        }
+
+        .document-link:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ---------- Footer ---------- */
+
+        footer {
+            padding-top: 60px;
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+        }
+
+        /* ---------- Responsive ---------- */
+
+        @media (max-width: 900px) {
+
+            .page {
+                padding: 0 22px 60px;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .meta-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .meta-item:nth-child(2) {
+                border-right: none;
+            }
+
+            .meta-item:nth-child(1),
+            .meta-item:nth-child(2) {
+                border-bottom: 1px solid #dcdcd7;
+            }
+
+            .section-head {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .content {
+                margin-left: 0;
+            }
+
+            .research-flow {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .method-grid,
+            .framework {
+                grid-template-columns: 1fr;
+            }
+
+            .data-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .solution-item {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-subtitle {
+                font-size: 17px;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .meta-item {
+                border-right: none;
+                border-bottom: 1px solid #dcdcd7;
+            }
+
+            .meta-item:last-child {
+                border-bottom: none;
+            }
+
+            .research-flow {
+                grid-template-columns: 1fr;
+            }
+
+            .role-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .document-box {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- Navigation -->
+    <nav class="topbar">
+        <a href="../index.html" class="back-link">← 返回首页</a>
+        <div class="top-label">User Research Case Study</div>
+    </nav>
+
+
+    <!-- Hero -->
+    <header class="hero">
+
+        <div class="project-number">04 / USER RESEARCH</div>
+
+        <h1>
+            数“智”赋能下的<br>
+            心理健康教育服务新模式
+        </h1>
+
+        <p class="hero-subtitle">
+            基于浙江百县千校的心理健康教育服务调研，
+            从真实场景出发识别县域学校心理健康服务中的系统性问题，
+            并进一步探索数字化技术驱动的服务模式。
+        </p>
+
+        <div class="tags">
+            <span class="tag">User Research</span>
+            <span class="tag">Social Research</span>
+            <span class="tag">Field Research</span>
+            <span class="tag">Service Design</span>
+            <span class="tag">AI × Mental Health</span>
+        </div>
+
+        <a
+            href="../pdf/mental-health-research.pdf"
+            target="_blank"
+            class="prd-button"
+        >
+            查看完整研究报告 ↗
+        </a>
+
+    </header>
+
+
+    <!-- Project Meta -->
+    <div class="meta-grid">
+
+        <div class="meta-item">
+            <div class="meta-label">Role</div>
+            <div class="meta-value">用户研究 / 项目成员</div>
+        </div>
+
+        <div class="meta-item">
+            <div class="meta-label">Research Type</div>
+            <div class="meta-value">县域教育服务调研</div>
+        </div>
+
+        <div class="meta-item">
+            <div class="meta-label">Research Scope</div>
+            <div class="meta-value">浙江省百县千校</div>
+        </div>
+
+        <div class="meta-item">
+            <div class="meta-label">Output</div>
+            <div class="meta-value">研究报告 + 服务模式</div>
+        </div>
+
+    </div>
+
+
+    <!-- 01 Background -->
+    <section>
+
+        <div class="section-head">
+            <div class="section-index">01 / BACKGROUND</div>
+
+            <div>
+                <h2 class="section-title">
+                    从“心理健康问题”<br>
+                    进入真实的教育服务场景
+                </h2>
+
+                <p class="section-intro">
+                    研究并不只关注学生是否存在心理问题，
+                    更关注学校现有的心理健康教育服务为什么难以做到精准、及时和持续。
+                </p>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <p>
+                儿童青少年心理健康服务涉及学生、家庭、学校以及社会等多个主体。
+                如果只依赖单次测评，很难完整反映学生心理状态的动态变化，
+                也难以支撑后续的个性化服务。
+            </p>
+
+            <p>
+                因此，本研究将关注点从单一的心理测评结果，
+                扩展到心理健康教育服务体系本身，
+                试图回答一个更具体的问题：
+                <strong>学校在实际开展心理健康教育时，真正卡在哪里？</strong>
+            </p>
+
+            <div class="question-box">
+
+                <h3>核心研究问题</h3>
+
+                <p>
+                    如何通过对县域中小学心理健康教育现状的系统调研，
+                    识别筛查、干预、资源配置和多主体协同中的关键问题，
+                    并利用数字化技术构建更加即时、精准、高效的心理健康教育服务模式？
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- 02 Research Design -->
+    <section>
+
+        <div class="section-head">
+            <div class="section-index">02 / RESEARCH DESIGN</div>
+
+            <div>
+                <h2 class="section-title">
+                    从多源数据还原<br>
+                    心理健康服务全貌
+                </h2>
+
+                <p class="section-intro">
+                    通过问卷、访谈和实地调研相结合，
+                    同时观察学校端、教师端、家庭端和学生端的实际需求。
+                </p>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <div class="research-flow">
+
+                <div class="flow-card">
+                    <div class="flow-number">01</div>
+                    <h3>问题定义</h3>
+                    <p>
+                        聚焦中小学心理健康教育服务体系中的实际痛点。
+                    </p>
+                </div>
+
+                <div class="flow-card">
+                    <div class="flow-number">02</div>
+                    <h3>实地调研</h3>
+                    <p>
+                        深入县域学校和相关教育服务场景，
+                        了解一线实践。
+                    </p>
+                </div>
+
+                <div class="flow-card">
+                    <div class="flow-number">03</div>
+                    <h3>多源分析</h3>
+                    <p>
+                        综合问卷、访谈和观察材料，
+                        对问题进行归纳。
+                    </p>
+                </div>
+
+                <div class="flow-card">
+                    <div class="flow-number">04</div>
+                    <h3>方案设计</h3>
+                    <p>
+                        从技术、服务措施和顶层设计三个层面提出新模式。
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="method-grid">
+
+                <div class="method-card">
+                    <h3>问卷调查</h3>
+                    <p>
+                        面向心理健康教育相关人员开展大规模问卷调查，
+                        了解当前服务体系、筛查方式和教师工作状态。
+                    </p>
+                </div>
+
+                <div class="method-card">
+                    <h3>深度访谈</h3>
+                    <p>
+                        通过访谈进一步理解问卷数据背后的真实原因，
+                        补充定量数据难以呈现的服务场景。
+                    </p>
+                </div>
+
+                <div class="method-card">
+                    <h3>实地观察</h3>
+                    <p>
+                        进入县域学校及相关服务场景，
+                        观察心理健康教育工作的实际运行方式。
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- 03 Data -->
+    <section>
+
+        <div class="section-head">
+            <div class="section-index">03 / RESEARCH SCALE</div>
+
+            <div>
+                <h2 class="section-title">
+                    大规模调研<br>
+                    建立县域服务问题画像
+                </h2>
+
+                <p class="section-intro">
+                    研究综合了大规模问卷与访谈材料，
+                    从宏观服务体系和微观使用场景两个层面进行分析。
+                </p>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <div class="data-grid">
+
+                <div class="data-card">
+                    <div class="data-number">37,717</div>
+                    <div class="data-label">
+                        心理健康教育相关人员问卷调查
+                    </div>
+                </div>
+
+                <div class="data-card">
+                    <div class="data-number">1,085</div>
+                    <div class="data-label">
+                        访谈材料
+                    </div>
+                </div>
+
+                <div class="data-card">
+                    <div class="data-number">26</div>
+                    <div class="data-label">
+                        县域实地调研范围
+                    </div>
+                </div>
+
+            </div>
+
+            <p style="margin-top:35px;">
+                研究通过不同来源的数据相互验证，
+                将“心理健康教育效果不佳”进一步拆解为筛查、
+                干预、人员能力以及组织协同等多个具体问题。
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- 04 Findings -->
+    <section>
+
+        <div class="section-head">
+            <div class="section-index">04 / KEY FINDINGS</div>
+
+            <div>
+                <h2 class="section-title">
+                    从“有没有服务”<br>
+                    进一步追问“服务为什么失效”
+                </h2>
+
+                <p class="section-intro">
+                    调研发现，当前问题并非单一环节缺失，
+                    而是筛查、干预、人员与组织体系之间存在断点。
+                </p>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <div class="finding-list">
+
+                <div class="finding">
+
+                    <div class="finding-number">01</div>
+
+                    <div>
+                        <h3>心理健康筛查精准度有限</h3>
+
+                        <p>
+                            调研发现，传统心理测评存在误报、漏报等问题。
+                            68.8%的调查对象对中小学生心理测量的精准性提出疑问，
+                            43.55%的调查对象对测量的科学性提出疑问。
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="finding">
+
+                    <div class="finding-number">02</div>
+
+                    <div>
+                        <h3>危机干预难以做到个性化</h3>
+
+                        <p>
+                            不同心理健康状态的学生需要不同程度和类型的支持，
+                            但现有服务往往主要依赖心理健康教师或医院转介，
+                            个性化干预能力不足。
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="finding">
+
+                    <div class="finding-number">03</div>
+
+                    <div>
+                        <h3>心理健康教师承担较大服务压力</h3>
+
+                        <p>
+                            心理健康服务大量集中于专职心理教师，
+                            班主任和任课教师相关知识技能不足，
+                            难以形成有效的多角色协同。
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="finding">
+
+                    <div class="finding-number">04</div>
+
+                    <div>
+                        <h3>学校缺少完整的心理健康服务体系</h3>
+
+                        <p>
+                            心理健康教育并非单点服务，
+                            需要学校管理、教师、家庭以及社会资源共同参与。
+                            当前不同角色之间仍存在信息和资源协同不足的问题。
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- 05 Insight -->
+    <section>
+
+        <div class="section-head">
+            <div class="section-index">05 / RESEARCH INSIGHT</div>
+
+            <div>
+                <h2 class="section-title">
+                    核心洞察：<br>
+                    心理健康服务需要从“静态测评”走向“动态服务”
+                </h2>
+
+                <p class="section-intro">
+                    调研结果最终指向的不是单一工具升级，
+                    而是心理健康服务流程本身需要重新设计。
+                </p>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <p>
+                传统模式更多围绕“测一次、筛一次、处理一次”展开，
+                但学生心理状态具有动态变化特征。
+                单次测评难以持续反映学生状态，也难以直接回答
+                “接下来应该由谁、在什么时候、提供什么服务”。
+            </p>
+
+            <p>
+                因此，本研究提出将心理健康教育从单纯的
+                <strong>测评工具</strong>转向
+                <strong>持续运行的服务系统</strong>。
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- 06 Solution -->
+    <section>
+
+        <div class="section-head">
+            <div class="section-index">06 / SERVICE MODEL</div>
+
+            <div>
+                <h2 class="section-title">
+                    数字化不是增加一个工具，<br>
+                    而是重新连接整个服务链路
+                </h2>
+
+                <p class="section-intro">
+                    基于研究发现，从技术、服务措施和顶层设计三个层面构建数字化心理健康服务体系。
+                </p>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <div class="solution-stack">
+
+                <div class="solution-item">
+
+                    <div class="solution-title">
+                        01 · 数据与技术
+                    </div>
+
+                    <div class="solution-description">
+                        整合风险因子、保护因子和诱发因子等不同来源、
+                        不同维度的数据，通过数据建模形成学生心理健康画像，
+                        并关注学生状态的动态变化。
+                    </div>
+
+                </div>
+
+
+                <div class="solution-item">
+
+                    <div class="solution-title">
+                        02 · 服务连接
+                    </div>
+
+                    <div class="solution-description">
+                        通过数字化服务平台连接学生、教师、家长及其他相关服务人员，
+                        根据学生状态将服务任务匹配给对应人员，
+                        提升服务的即时性和协同效率。
+                    </div>
+
+                </div>
+
+
+                <div class="solution-item">
+
+                    <div class="solution-title">
+                        03 · 智能辅助
+                    </div>
+
+                    <div class="solution-description">
+                        利用机器学习和人工智能等技术，
+                        为教师、家长和管理人员提供针对性的心理健康服务指导，
+                        辅助风险识别与干预决策。
+                    </div>
+
+                </div>
+
+
+                <div class="solution-item">
+
+                    <div class="solution-title">
+                        04 · 县域治理
+                    </div>
+
+                    <div class="solution-description">
+                        从县域层面建立心理健康教育工作协调机制，
+                        打通不同部门和学校之间的资源，
+                        形成更加完整的区域心理健康服务体系。
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- 07 Framework -->
+    <section>
+
+        <div class="section-head">
+            <div class="section-index">07 / SYSTEM FRAMEWORK</div>
+
+            <div>
+                <h2 class="section-title">
+                    三层服务架构
+                </h2>
+
+                <p class="section-intro">
+                    将数字技术、服务流程与组织治理结合起来，
+                    从单点工具升级为系统化服务模式。
+                </p>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <div class="framework">
+
+                <div class="framework-card">
+
+                    <h3>技术层</h3>
+
+                    <p>
+                        多源数据整合、学生心理健康画像、
+                        动态发展轨迹、智能分析。
+                    </p>
+
+                </div>
+
+
+                <div class="framework-card">
+
+                    <h3>服务层</h3>
+
+                    <p>
+                        风险识别、服务任务分配、
+                        多主体协同、智能干预支持。
+                    </p>
+
+                </div>
+
+
+                <div class="framework-card">
+
+                    <h3>治理层</h3>
+
+                    <p>
+                        县域统筹、资源配置、
+                        部门协同以及心理健康教育体系建设。
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- 08 Outcomes -->
+    <section>
+
+        <div class="section-head">
+            <div class="section-index">08 / OUTCOMES</div>
+
+            <div>
+                <h2 class="section-title">
+                    从研究发现<br>
+                    进入真实的区域实践
+                </h2>
+
+                <p class="section-intro">
+                    研究成果并未停留在报告层面，
+                    相关数字化心理健康服务模式进一步在浙江多个地区落地。
+                </p>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <div class="outcome-box">
+
+                <h3>区域实践与推广</h3>
+
+                <p>
+                    报告记录的实践成果显示，数字化心理健康服务模式
+                    在浙江多个县域进一步形成不同的区域应用。
+                </p>
+
+                <ul class="case-list">
+
+                    <li>
+                        龙游县“走心驿站”青少年心理健康服务应用体系
+                    </li>
+
+                    <li>
+                        浦江县“心路 e 通”心理健康数字化管理系统
+                    </li>
+
+                    <li>
+                        松阳县“舒心码”数字化改革方案
+                    </li>
+
+                    <li>
+                        桐乡市“阳光桐心”等区域心理服务项目
+                    </li>
+
+                </ul>
+
+                <p style="margin-top:25px;">
+                    报告同时记录了相关项目进入教育领域数字化改革试点、
+                    教育信息化区域示范案例等实践成果。
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- 09 My Role -->
+    <section>
+
+        <div class="section-head">
+            <div class="section-index">09 / MY CONTRIBUTION</div>
+
+            <div>
+                <h2 class="section-title">
+                    我的研究能力
+                </h2>
+
+                <p class="section-intro">
+                    这个项目体现的并不仅是调研执行能力，
+                    更是从复杂问题中建立结构、提炼洞察并转化为服务方案的能力。
+                </p>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <div class="role-grid">
+
+                <div class="role-card">
+
+                    <h3>研究设计</h3>
+
+                    <p>
+                        参与围绕县域中小学心理健康教育现状的研究设计，
+                        将宏观问题拆解到筛查、干预、教师与组织体系等具体环节。
+                    </p>
+
+                </div>
+
+
+                <div class="role-card">
+
+                    <h3>定量与定性分析</h3>
+
+                    <p>
+                        综合问卷、访谈及实地调研材料，
+                        从数据和真实场景两个维度识别关键问题。
+                    </p>
+
+                </div>
+
+
+                <div class="role-card">
+
+                    <h3>问题诊断</h3>
+
+                    <p>
+                        将分散的现象归纳为筛查精准度、
+                        个性化干预、人员压力和体系协同等核心问题。
+                    </p>
+
+                </div>
+
+
+                <div class="role-card">
+
+                    <h3>服务模式设计</h3>
+
+                    <p>
+                        将研究发现进一步转化为数字化服务体系，
+                        从技术、服务措施和顶层治理三个层面提出解决路径。
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Full Document -->
+    <section class="document-section">
+
+        <div class="document-box">
+
+            <div>
+                <h2>完整研究报告</h2>
+
+                <p>
+                    查看完整调研背景、研究方法、数据分析及实践案例。
+                </p>
+            </div>
+
+            <a
+                href="../pdf/mental-health-research.pdf"
+                target="_blank"
+                class="document-link"
+            >
+                打开 PDF ↗
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        © 2026 Shiying Liu · User Research Portfolio
+    </footer>
+
+</div>
+
+</body>
+</html>
