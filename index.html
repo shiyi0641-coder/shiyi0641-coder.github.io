@@ -3,284 +3,1190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shiying Liu - Homepage</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>柳诗颖 | AI Product & User Research</title>
+
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fff;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-        
-        .container {
-            display: flex;
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-            gap: 50px;
+
+        html {
+            scroll-behavior: smooth;
         }
 
-        .sidebar {
-            flex: 0 0 260px;
-            text-align: center;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+                Arial, sans-serif;
+
+            background: #f7f7f5;
+            color: #171717;
+            line-height: 1.7;
         }
-        
-        .profile-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        
-        .name {
-            font-size: 2rem;
-            font-weight: 600;
-            color: #4f4f4f;
-            margin-bottom: 5px;
-        }
-        
-        .university {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 30px;
-            line-height: 1.4;
-        }
-        
-        .contact-list {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-            margin-left: 20px;
-        }
-        
-        .contact-list li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            font-size: 1.05rem;
-            color: #444;
-        }
-        
-        .contact-list i {
-            width: 30px;
-            color: #555;
-            font-size: 1.2rem;
-            text-align: center;
-        }
-        
-        .contact-list a {
-            color: #444;
+
+        a {
+            color: inherit;
             text-decoration: none;
         }
-        
-        .contact-list a:hover {
-            color: #0366d6;
-            text-decoration: underline;
+
+        .page {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 42px 80px;
         }
 
-        .main-content {
-            flex: 1;
+
+        /* =========================
+           Header
+        ========================= */
+
+        header {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 80px;
+
+            padding: 55px 0 70px;
+
+            border-bottom: 1px solid #deded9;
         }
-        
-        .section-title {
-            font-size: 1.5rem;
-            color: #2c3e50;
-            border-bottom: 2px solid #eaeaea;
-            padding-bottom: 10px;
-            margin-top: 0;
+
+        .profile {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+
+            border-radius: 12px;
+            object-fit: cover;
+
+            background: #e8e8e4;
+        }
+
+        .profile-name {
+            font-size: 28px;
+            font-weight: 650;
+            letter-spacing: -0.03em;
+        }
+
+        .profile-school {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+
+            font-size: 13px;
+            color: #777;
+        }
+
+        .profile-links {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+
+            margin-top: 8px;
+
+            font-size: 13px;
+        }
+
+        .profile-links a {
+            color: #555;
+            transition: color 0.2s ease;
+        }
+
+        .profile-links a:hover {
+            color: #000;
+        }
+
+
+        /* =========================
+           Hero
+        ========================= */
+
+        .hero {
+            padding-top: 12px;
+        }
+
+        .hero-label {
+            font-size: 13px;
+            color: #999;
+
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+
             margin-bottom: 20px;
         }
-        
-        .about-text {
-            font-size: 1.05rem;
-            margin-bottom: 40px;
-            text-align: justify;
+
+        .hero h1 {
+            max-width: 820px;
+
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.08;
+
+            letter-spacing: -0.045em;
+            font-weight: 650;
+
+            margin-bottom: 30px;
         }
 
-        .item-container {
-            margin-bottom: 25px;
+        .hero-description {
+            max-width: 760px;
+
+            font-size: 19px;
+            line-height: 1.8;
+
+            color: #5f5f5a;
         }
-        
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 5px;
-        }
-        
-        .item-title {
-            font-size: 1.15rem;
+
+        .hero-description strong {
+            color: #222;
             font-weight: 600;
         }
-        
-        .item-date {
-            color: #666;
-            font-size: 0.95rem;
-        }
-        
-        .item-subtitle {
-            font-style: italic;
-            color: #555;
-            margin-bottom: 10px;
-        }
-        
-        .item-details {
-            padding-left: 20px;
-            margin: 0;
-        }
-        
-        .item-details li {
-            margin-bottom: 5px;
-            font-size: 0.95rem;
+
+
+        /* =========================
+           Section
+        ========================= */
+
+        section {
+            padding: 90px 0;
+
+            border-bottom: 1px solid #deded9;
         }
 
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                gap: 30px;
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+
+            margin-bottom: 45px;
+        }
+
+        .section-title {
+            font-size: 30px;
+            font-weight: 600;
+
+            letter-spacing: -0.025em;
+        }
+
+        .section-label {
+            font-size: 12px;
+            color: #999;
+
+            letter-spacing: 0.12em;
+        }
+
+
+        /* =========================
+           Projects
+        ========================= */
+
+        .projects {
+            display: grid;
+            gap: 18px;
+        }
+
+        .project-card {
+            position: relative;
+
+            display: grid;
+            grid-template-columns: 70px 1fr auto;
+            gap: 28px;
+            align-items: center;
+
+            padding: 32px 34px;
+
+            background: #fff;
+
+            border: 1px solid #deded8;
+            border-radius: 12px;
+
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+
+            border-color: #c9c9c3;
+
+            box-shadow:
+                0 12px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .project-number {
+            align-self: start;
+
+            font-size: 13px;
+            color: #999;
+
+            padding-top: 4px;
+        }
+
+        .project-main {
+            min-width: 0;
+        }
+
+        .project-type {
+            display: inline-block;
+
+            margin-bottom: 8px;
+
+            font-size: 12px;
+            color: #999;
+
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .project-title {
+            font-size: 24px;
+            line-height: 1.35;
+
+            font-weight: 600;
+
+            letter-spacing: -0.02em;
+
+            margin-bottom: 9px;
+        }
+
+        .project-description {
+            max-width: 680px;
+
+            font-size: 14px;
+            color: #666;
+
+            line-height: 1.7;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 7px;
+
+            margin-top: 16px;
+        }
+
+        .project-tag {
+            display: inline-block;
+
+            padding: 4px 9px;
+
+            border: 1px solid #deded8;
+            border-radius: 999px;
+
+            font-size: 11px;
+            color: #777;
+
+            background: #fafaf8;
+        }
+
+        .project-link {
+            white-space: nowrap;
+
+            font-size: 14px;
+            color: #333;
+
+            transition: transform 0.2s ease;
+        }
+
+        .project-card:hover .project-link {
+            transform: translateX(4px);
+        }
+
+
+        /* =========================
+           About
+        ========================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+
+            gap: 80px;
+        }
+
+        .about-label {
+            font-size: 13px;
+            color: #999;
+
+            letter-spacing: 0.08em;
+        }
+
+        .about-content {
+            max-width: 760px;
+        }
+
+        .about-content p {
+            font-size: 16px;
+            color: #555;
+
+            margin-bottom: 20px;
+        }
+
+        .about-content p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* =========================
+           Education / Experience
+        ========================= */
+
+        .timeline {
+            display: grid;
+            gap: 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+
+            gap: 40px;
+
+            padding: 28px 0;
+
+            border-top: 1px solid #deded9;
+        }
+
+        .timeline-item:last-child {
+            border-bottom: 1px solid #deded9;
+        }
+
+        .timeline-date {
+            font-size: 13px;
+            color: #999;
+        }
+
+        .timeline-title {
+            font-size: 18px;
+            font-weight: 600;
+
+            margin-bottom: 5px;
+        }
+
+        .timeline-subtitle {
+            font-size: 14px;
+            color: #777;
+
+            margin-bottom: 12px;
+        }
+
+        .timeline-description {
+            max-width: 700px;
+
+            font-size: 14px;
+            color: #666;
+        }
+
+
+        /* =========================
+           Skills
+        ========================= */
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+        .skill {
+            padding: 9px 14px;
+
+            border: 1px solid #d9d9d3;
+            border-radius: 999px;
+
+            background: #fff;
+
+            font-size: 13px;
+            color: #555;
+        }
+
+
+        /* =========================
+           Footer
+        ========================= */
+
+        footer {
+            padding-top: 60px;
+
+            display: flex;
+            justify-content: space-between;
+
+            font-size: 12px;
+            color: #999;
+        }
+
+
+        /* =========================
+           Responsive
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .page {
+                padding: 0 24px 60px;
             }
-            .sidebar {
-                flex: none;
-                width: 100%;
+
+            header {
+                grid-template-columns: 1fr;
+                gap: 45px;
             }
-            .contact-list {
-                display: inline-block;
-                margin-left: 0;
+
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .project-card {
+                grid-template-columns: 45px 1fr;
+            }
+
+            .project-link {
+                grid-column: 2;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 7px;
             }
         }
+
+
+        @media (max-width: 600px) {
+
+            .page {
+                padding: 0 18px 50px;
+            }
+
+            header {
+                padding-top: 35px;
+                padding-bottom: 55px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .hero-description {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+
+            .section-header {
+                display: block;
+            }
+
+            .section-label {
+                display: block;
+                margin-top: 6px;
+            }
+
+            .project-card {
+                padding: 25px;
+                grid-template-columns: 38px 1fr;
+                gap: 18px;
+            }
+
+            .project-title {
+                font-size: 21px;
+            }
+
+            .project-link {
+                grid-column: 2;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+
     </style>
 </head>
+
+
 <body>
 
-    <div class="container">
-        
-        <div class="sidebar">
-            <img src="photo.jpg" alt="Shiying Liu" class="profile-img">
-            <div class="name">柳诗颖<br>Shiying Liu</div>
-            <div class="university">Beijing Normal University</div>
-            
-            <ul class="contact-list">
-                <li><i class="fa-solid fa-location-dot"></i> Beijing, China</li>
-                <li><i class="fa-solid fa-envelope"></i> <a href="mailto:1830074786@qq.com">Email</a></li>
-                <li><i class="fa-brands fa-github"></i> <a href="https://github.com/shiyi0641-coder" target="_blank">Github</a></li>
-            </ul>
+<div class="page">
+
+
+    <!-- =========================
+         Header
+    ========================= -->
+
+    <header>
+
+        <aside class="profile">
+
+            <!--
+                如果你的照片文件名不是 photo.jpg，
+                把这里改成你的实际文件名。
+            -->
+            <img
+                src="photo.jpg"
+                alt="Shiying Liu"
+                class="profile-photo"
+            >
+
+            <div>
+
+                <div class="profile-name">
+                    柳诗颖
+                </div>
+
+                <div class="profile-school">
+                    北京师范大学 · 心理学硕士
+                </div>
+
+            </div>
+
+
+            <div class="profile-info">
+
+                <div>
+                    AI Product · User Research
+                </div>
+
+                <div>
+                    Beijing / Remote
+                </div>
+
+            </div>
+
+
+            <div class="profile-links">
+
+                <a href="mailto:your-email@example.com">
+                    Email ↗
+                </a>
+
+                <a
+                    href="https://github.com/shiyi0641-coder"
+                    target="_blank"
+                >
+                    GitHub ↗
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- Hero -->
+
+        <div class="hero">
+
+            <div class="hero-label">
+                AI Product × User Research
+            </div>
+
+            <h1>
+                把复杂的问题，<br>
+                变成可验证的产品方案。
+            </h1>
+
+            <p class="hero-description">
+                心理学背景的
+                <strong>AI 产品与用户研究实践者</strong>。
+                我擅长从真实用户问题出发，
+                结合定性研究、定量分析与 AI 产品设计，
+                将模糊需求转化为清晰的问题定义、
+                产品方案和可验证的结果。
+            </p>
+
         </div>
 
-        <div class="main-content">
-            
-            <h2 class="section-title">🌟 自我介绍 (About Me)</h2>
-            <div class="about-text">
-                <p>你好！我是柳诗颖，目前在北京师范大学攻读心理学硕士学位。</p>
-                <p>我的核心兴趣在于探索心理学理论与前沿 AI 技术的结合。在过往的经历中，我不仅在学术上专注于社会认知发展，同时也在快手、中国电子云等企业积累了丰富的 AI 产品设计与用户研究经验。我致力于通过数据驱动和 AI 赋能，打造提升效率与用户体验的创新产品解决方案。</p>
-            </div>
+    </header>
 
-            <h2 class="section-title">🎓 教育经历 (Education)</h2>
-            
-            <div class="item-container">
-                <div class="item-header">
-                    <span class="item-title">北京师范大学</span>
-                    <span class="item-date">2024.09 - 2027.06</span>
-                </div>
-                <div class="item-subtitle">心理学硕士</div>
-                <ul class="item-details">
-                    <li>主修课程：编程、社会认知发展、ERP原理与技术 (GPA: 86.4/100)</li>
-                    <li>学术荣誉：校级二等奖学金</li>
-                </ul>
-            </div>
 
-            <div class="item-container">
-                <div class="item-header">
-                    <span class="item-title">浙江师范大学</span>
-                    <span class="item-date">2020.09 - 2024.06</span>
-                </div>
-                <div class="item-subtitle">应用心理学 | 本科</div>
-                <ul class="item-details">
-                    <li>主修课程：编程、心理统计(SPSS)、现代测量、多元统计等 (GPA: 3.95/5.0)</li>
-                    <li>荣誉奖项：省优秀毕业生、省政府奖学金(2年)、连续3年校三好学生及一等奖学金</li>
-                </ul>
-            </div>
 
-            <h2 class="section-title">🚀 核心作品与项目 (Core Projects)</h2>
-            
-            <div class="item-container">
-                <div class="item-header">
-                    <span class="item-title">ResearchLab — 用研数据分析平台</span>
-                </div>
-                <div class="item-subtitle">核心产品设计</div>
-                <ul class="item-details">
-                    <li>负责用研平台整体产品设计，聚焦效率提升与体验统一，主导数据分析看板、业务提问自动生成问卷SOP等关键模块的定义与原型输出。</li>
-                    <li>将 Vibe Coding 能力引入工作流，平台自动生成可交互的分析工具或数据视图。</li>
-                    <li>将定制化需求响应时间从天级缩短至小时级，实现从问卷生成、数据清洗、加权分析到报告产出的全链路闭环。</li>
-                </ul>
-            </div>
+    <!-- =========================
+         Core Projects
+    ========================= -->
 
-            <div class="item-container">
-                <div class="item-header">
-                    <span class="item-title">心理学文献精读助教 (AI Agent)</span>
-                </div>
-                <div class="item-subtitle">项目负责人：柳诗颖</div>
-                <ul class="item-details">
-                    <li><strong>产品定位：</strong>专攻心理学文献阅读行为实验难题的C端产品，核心目标是把阅读一篇文献提炼核心实验设计的时间从30分钟大幅缩短到1分钟。</li>
-                    <li><strong>核心功能：</strong>支持用户直接丢入文献的 PDF 网页链接系统自动抓取文本。能够结构化提取被试群体特征、自变量干预周期及核心因变量。</li>
-                    <li><strong>工作流构建：</strong>通过大模型节点思维链与强约束执行反向指令，智能识别并过滤掉 EEG、fMRI 等非核心生理数据噪音。接入 markdown_to_word 插件将结构化文本无缝打包成 .docx 格式文件并提供一键下载。</li>
-                </ul>
-            </div>
-            
-            <div class="item-container">
-                <div class="item-header">
-                    <span class="item-title">走心驿站 (儿童青少年心理危机干预平台)</span>
-                </div>
-                <div class="item-subtitle">产品经理</div>
-                <ul class="item-details">
-                    <li>执行并剖析超 30,000 份定量问卷与定性深度访谈，提炼并规划“学生心理画像”等核心模块并撰写 MRD。</li>
-                    <li>推动系统在浙江省内多地中小学实际部署，斩获“挑战杯”省级核心奖项。</li>
-                </ul>
-            </div>
+    <section id="projects">
 
-            <div class="item-container">
-                <div class="item-header">
-                    <span class="item-title">社团招新智能匹配平台</span>
-                </div>
-                <div class="item-subtitle">产品负责人</div>
-                <ul class="item-details">
-                    <li>基于低代码平台完成双边匹配系统从0到1落地，设计基于兴趣标签的向量推荐引擎。</li>
-                    <li>搭建集成自动邀约与状态流转逻辑的拖拽式追踪看板 (ATS)。</li>
-                </ul>
-            </div>
+        <div class="section-header">
 
-            <h2 class="section-title">💼 实习经历 (Experience)</h2>
-            
-            <div class="item-container">
-                <div class="item-header">
-                    <span class="item-title">快手</span>
-                    <span class="item-date">2026.04 - 2026.08</span>
-                </div>
-                <div class="item-subtitle">用户研究</div>
-                <ul class="item-details">
-                    <li>参与万粉+创作者满意度追踪调研，系统性分析 AIGC 创作者群体在内容生产流程等方面的差异化需求与痛点。</li>
-                    <li>负责世界杯期间用户行为与态度调研，为版权采买决策与赛事运营策略提供量化依据。</li>
-                </ul>
-            </div>
+            <h2 class="section-title">
+                核心项目
+            </h2>
 
-            <div class="item-container">
-                <div class="item-header">
-                    <span class="item-title">中国电子云计算技术有限公司</span>
-                    <span class="item-date">2025.11 - 2026.02</span>
-                </div>
-                <div class="item-subtitle">AI产品经理</div>
-                <ul class="item-details">
-                    <li>参与“招投标合同生成”与“合同AI智能评估”两大核心功能模块的需求定义与原型设计 (PRD撰写)。</li>
-                    <li>深度参与技术需求评审，保障了产品功能从场景化设想到技术实现的准确落地。</li>
-                </ul>
+            <div class="section-label">
+                SELECTED WORKS
             </div>
 
         </div>
-    </div>
+
+
+        <div class="projects">
+
+
+            <!-- Project 01 -->
+
+            <a
+                href="projects/researchlab.html"
+                class="project-card"
+            >
+
+                <div class="project-number">
+                    01
+                </div>
+
+
+                <div class="project-main">
+
+                    <div class="project-type">
+                        AI Product · User Research
+                    </div>
+
+                    <div class="project-title">
+                        一站式用研数据分析平台
+                    </div>
+
+                    <div class="project-description">
+                        面向用户研究工作流设计的一站式数据分析平台，
+                        将问卷生成、数据清洗、指标分析与报告输出连接起来，
+                        降低重复性数据处理成本。
+                    </div>
+
+
+                    <div class="project-tags">
+
+                        <span class="project-tag">
+                            Product Design
+                        </span>
+
+                        <span class="project-tag">
+                            AI Workflow
+                        </span>
+
+                        <span class="project-tag">
+                            Data Analysis
+                        </span>
+
+                        <span class="project-tag">
+                            Vibe Coding
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-link">
+                    查看项目详情 →
+                </div>
+
+            </a>
+
+
+
+            <!-- Project 02 -->
+
+            <a
+                href="projects/literature-agent.html"
+                class="project-card"
+            >
+
+                <div class="project-number">
+                    02
+                </div>
+
+
+                <div class="project-main">
+
+                    <div class="project-type">
+                        AI Agent · Product Design
+                    </div>
+
+                    <div class="project-title">
+                        心理学文献精读助教
+                    </div>
+
+                    <div class="project-description">
+                        针对心理学研究生阅读英文论文时的信息提取痛点，
+                        设计面向实验研究的 AI 文献分析 Agent，
+                        将复杂论文转化为结构化的研究信息。
+                    </div>
+
+
+                    <div class="project-tags">
+
+                        <span class="project-tag">
+                            AI Agent
+                        </span>
+
+                        <span class="project-tag">
+                            LLM Workflow
+                        </span>
+
+                        <span class="project-tag">
+                            Psychology
+                        </span>
+
+                        <span class="project-tag">
+                            Information Extraction
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-link">
+                    查看项目详情 →
+                </div>
+
+            </a>
+
+
+
+            <!-- Project 03 -->
+
+            <a
+                href="projects/club-matching.html"
+                class="project-card"
+            >
+
+                <div class="project-number">
+                    03
+                </div>
+
+
+                <div class="project-main">
+
+                    <div class="project-type">
+                        AI Product · Recommendation
+                    </div>
+
+                    <div class="project-title">
+                        社团招新智能匹配平台
+                    </div>
+
+                    <div class="project-description">
+                        将传统的社团信息浏览转化为双边智能匹配，
+                        通过兴趣标签与向量匹配连接新生和社团，
+                        同时为社团提供招新管理工具。
+                    </div>
+
+
+                    <div class="project-tags">
+
+                        <span class="project-tag">
+                            Recommendation
+                        </span>
+
+                        <span class="project-tag">
+                            Vector Matching
+                        </span>
+
+                        <span class="project-tag">
+                            B2C + B2B
+                        </span>
+
+                        <span class="project-tag">
+                            Product Design
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-link">
+                    查看项目详情 →
+                </div>
+
+            </a>
+
+
+
+            <!-- Project 04 -->
+
+            <a
+                href="projects/mental-health-research.html"
+                class="project-card"
+            >
+
+                <div class="project-number">
+                    04
+                </div>
+
+
+                <div class="project-main">
+
+                    <div class="project-type">
+                        User Research · Social Research
+                    </div>
+
+                    <div class="project-title">
+                        数“智”赋能下的心理健康教育服务新模式
+                    </div>
+
+                    <div class="project-description">
+                        基于浙江百县千校的心理健康教育调研，
+                        综合问卷、访谈与实地调研，
+                        从真实教育场景中识别服务体系问题，
+                        并进一步探索数字化服务模式。
+                    </div>
+
+
+                    <div class="project-tags">
+
+                        <span class="project-tag">
+                            User Research
+                        </span>
+
+                        <span class="project-tag">
+                            Field Research
+                        </span>
+
+                        <span class="project-tag">
+                            Service Design
+                        </span>
+
+                        <span class="project-tag">
+                            Mental Health
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-link">
+                    查看项目详情 →
+                </div>
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         About Me
+    ========================= -->
+
+    <section>
+
+        <div class="about-grid">
+
+            <div class="about-label">
+                ABOUT ME
+            </div>
+
+
+            <div class="about-content">
+
+                <p>
+                    我的专业背景是心理学，
+                    研究训练让我习惯从用户行为、
+                    认知过程和真实场景出发理解问题。
+                </p>
+
+                <p>
+                    在产品实践中，我进一步将这种研究视角延伸到
+                    AI 产品、用户研究工具和智能推荐等场景，
+                    关注的不只是“功能能不能做出来”，
+                    而是<strong>用户为什么需要它，以及如何验证它真正解决了问题。</strong>
+                </p>
+
+                <p>
+                    我的工作方式通常从问题定义开始，
+                    经过用户研究、需求拆解、方案设计和快速验证，
+                    最终形成可落地的产品方案。
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         Education
+    ========================= -->
+
+    <section>
+
+        <div class="section-header">
+
+            <h2 class="section-title">
+                教育经历
+            </h2>
+
+            <div class="section-label">
+                EDUCATION
+            </div>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+                    2024 — 2027
+                </div>
+
+                <div>
+
+                    <div class="timeline-title">
+                        北京师范大学
+                    </div>
+
+                    <div class="timeline-subtitle">
+                        心理学 · 硕士
+                    </div>
+
+                    <div class="timeline-description">
+                        聚焦儿童认知、数学认知与认知能力迁移，
+                        具备实验设计、数据分析和心理学研究训练。
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+                    本科阶段
+                </div>
+
+                <div>
+
+                    <div class="timeline-title">
+                        心理学相关专业背景
+                    </div>
+
+                    <div class="timeline-subtitle">
+                        Psychology
+                    </div>
+
+                    <div class="timeline-description">
+                        接受心理学基础研究方法、统计分析与实验研究训练。
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         Experience
+    ========================= -->
+
+    <section>
+
+        <div class="section-header">
+
+            <h2 class="section-title">
+                实习与实践
+            </h2>
+
+            <div class="section-label">
+                EXPERIENCE
+            </div>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <!-- Kuaishou -->
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+                    2026.04 — 2026.08
+                </div>
+
+                <div>
+
+                    <div class="timeline-title">
+                        快手
+                    </div>
+
+                    <div class="timeline-subtitle">
+                        用户研究
+                    </div>
+
+                    <div class="timeline-description">
+                        参与创作者满意度监测、用户行为与态度研究，
+                        从问卷设计、数据分析到研究报告输出，
+                        将用户反馈转化为业务诊断与产品优化建议。
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- China Electronics Cloud -->
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+                    2025.11 — 2026.02
+                </div>
+
+                <div>
+
+                    <div class="timeline-title">
+                        中国电子云计算技术有限公司
+                    </div>
+
+                    <div class="timeline-subtitle">
+                        AI 产品经理
+                    </div>
+
+                    <div class="timeline-description">
+                        参与 AI 产品需求分析、PRD 撰写、
+                        原型设计、技术沟通与产品测试，
+                        探索大模型在企业业务流程中的应用。
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         Skills
+    ========================= -->
+
+    <section>
+
+        <div class="section-header">
+
+            <h2 class="section-title">
+                能力与工具
+            </h2>
+
+            <div class="section-label">
+                SKILLS
+            </div>
+
+        </div>
+
+
+        <div class="skills">
+
+            <span class="skill">
+                User Research
+            </span>
+
+            <span class="skill">
+                Qualitative Research
+            </span>
+
+            <span class="skill">
+                Quantitative Analysis
+            </span>
+
+            <span class="skill">
+                AI Product Design
+            </span>
+
+            <span class="skill">
+                PRD
+            </span>
+
+            <span class="skill">
+                Prompt Design
+            </span>
+
+            <span class="skill">
+                LLM Workflow
+            </span>
+
+            <span class="skill">
+                Python
+            </span>
+
+            <span class="skill">
+                SPSS
+            </span>
+
+            <span class="skill">
+                Vibe Coding
+            </span>
+
+            <span class="skill">
+                HTML / CSS / JS
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         Footer
+    ========================= -->
+
+    <footer>
+
+        <div>
+            © 2026 Shiying Liu
+        </div>
+
+        <div>
+            AI Product · User Research
+        </div>
+
+    </footer>
+
+
+</div>
 
 </body>
 </html>
