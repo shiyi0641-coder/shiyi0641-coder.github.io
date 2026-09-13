@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一站式用研数据分析平台 | Shiying Liu</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #f7f8fa;
+            --card: #ffffff;
+            --text: #171717;
+            --secondary: #666666;
+            --muted: #999999;
+            --border: #e8e8e8;
+            --accent: #111111;
+            --soft: #f1f2f4;
+        }
+
+        body {
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                "PingFang SC",
+                "Hiragino Sans GB",
+                "Microsoft YaHei",
+                Arial,
+                sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, calc(100% - 48px));
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(247, 248, 250, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .nav {
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .back {
+            font-size: 14px;
+            color: var(--secondary);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s ease;
+        }
+
+        .back:hover {
+            color: var(--text);
+        }
+
+        .nav-label {
+            font-size: 13px;
+            color: var(--muted);
+            letter-spacing: 0.08em;
+        }
+
+        /* Hero */
+
+        .hero {
+            padding: 100px 0 80px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 12px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            max-width: 850px;
+            font-size: clamp(40px, 6vw, 72px);
+            line-height: 1.08;
+            letter-spacing: -0.045em;
+            font-weight: 700;
+            margin-bottom: 28px;
+        }
+
+        .hero-subtitle {
+            max-width: 700px;
+            font-size: 20px;
+            color: var(--secondary);
+            line-height: 1.65;
+            margin-bottom: 36px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0 18px;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: 0.2s ease;
+        }
+
+        .button-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .button-primary:hover {
+            opacity: 0.82;
+        }
+
+        .button-secondary {
+            border: 1px solid var(--border);
+            background: white;
+            color: var(--text);
+        }
+
+        .button-secondary:hover {
+            background: var(--soft);
+        }
+
+        /* Project info */
+
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 100px;
+        }
+
+        .meta-item {
+            padding: 26px 20px;
+            border-right: 1px solid var(--border);
+        }
+
+        .meta-item:last-child {
+            border-right: none;
+        }
+
+        .meta-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 7px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .meta-value {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        /* Sections */
+
+        .section {
+            padding: 0 0 100px;
+        }
+
+        .section-header {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 50px;
+            margin-bottom: 45px;
+        }
+
+        .section-number {
+            font-size: 13px;
+            color: var(--muted);
+            letter-spacing: 0.08em;
+        }
+
+        .section-title {
+            font-size: 34px;
+            line-height: 1.25;
+            letter-spacing: -0.025em;
+            margin-bottom: 16px;
+        }
+
+        .section-intro {
+            color: var(--secondary);
+            font-size: 16px;
+            max-width: 720px;
+        }
+
+        .content {
+            margin-left: 330px;
+            max-width: 720px;
+        }
+
+        .content p {
+            font-size: 16px;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        /* Problem cards */
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .problem-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .problem-index {
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        .problem-card h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .problem-card p {
+            font-size: 14px;
+            color: var(--secondary);
+            line-height: 1.7;
+        }
+
+        /* Solution */
+
+        .flow {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-top: 35px;
+        }
+
+        .flow-item {
+            position: relative;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 22px 16px;
+            min-height: 115px;
+        }
+
+        .flow-item:not(:last-child)::after {
+            content: "→";
+            position: absolute;
+            right: -17px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+            font-size: 18px;
+            z-index: 2;
+        }
+
+        .flow-num {
+            font-size: 11px;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .flow-title {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        /* Feature blocks */
+
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .feature {
+            display: grid;
+            grid-template-columns: 70px 190px 1fr;
+            gap: 25px;
+            align-items: start;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 24px;
+        }
+
+        .feature-num {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .feature h3 {
+            font-size: 16px;
+        }
+
+        .feature p {
+            font-size: 14px;
+            color: var(--secondary);
+            margin: 0;
+        }
+
+        /* Highlight */
+
+        .highlight {
+            background: #111;
+            color: white;
+            border-radius: 14px;
+            padding: 55px;
+            margin-top: 25px;
+        }
+
+        .highlight-label {
+            font-size: 12px;
+            color: #aaa;
+            letter-spacing: 0.12em;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+        }
+
+        .highlight h2 {
+            font-size: 30px;
+            line-height: 1.35;
+            max-width: 760px;
+            margin-bottom: 18px;
+        }
+
+        .highlight p {
+            color: #c8c8c8;
+            max-width: 700px;
+            font-size: 15px;
+        }
+
+        /* Results */
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .result-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .result-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .result-card p {
+            font-size: 14px;
+            color: var(--secondary);
+            margin: 0;
+        }
+
+        /* Role */
+
+        .role-box {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+        }
+
+        .role-box ul {
+            list-style: none;
+        }
+
+        .role-box li {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 15px;
+            color: #444;
+        }
+
+        .role-box li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .role-box li::before {
+            content: "↗";
+            margin-right: 12px;
+            color: #999;
+        }
+
+        /* Document */
+
+        .document {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .document-info h3 {
+            font-size: 20px;
+            margin-bottom: 7px;
+        }
+
+        .document-info p {
+            margin: 0;
+            font-size: 14px;
+            color: var(--secondary);
+        }
+
+        .document-icon {
+            width: 48px;
+            height: 48px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 20px;
+        }
+
+        /* Footer */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 0 60px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        /* Responsive */
+
+        @media (max-width: 800px) {
+            .container {
+                width: min(100% - 32px, 700px);
+            }
+
+            .hero {
+                padding: 70px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .project-meta {
+                grid-template-columns: repeat(2, 1fr);
+                margin-bottom: 70px;
+            }
+
+            .meta-item:nth-child(2) {
+                border-right: none;
+            }
+
+            .meta-item:nth-child(1),
+            .meta-item:nth-child(2) {
+                border-bottom: 1px solid var(--border);
+            }
+
+            .section {
+                padding-bottom: 70px;
+            }
+
+            .section-header {
+                display: block;
+                margin-bottom: 30px;
+            }
+
+            .section-number {
+                margin-bottom: 12px;
+            }
+
+            .content {
+                margin-left: 0;
+            }
+
+            .problem-grid,
+            .result-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flow {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-item:not(:last-child)::after {
+                content: "↓";
+                right: auto;
+                left: 50%;
+                top: auto;
+                bottom: -22px;
+                transform: translateX(-50%);
+            }
+
+            .feature {
+                grid-template-columns: 45px 1fr;
+                gap: 15px;
+            }
+
+            .feature p {
+                grid-column: 2;
+            }
+
+            .highlight {
+                padding: 35px 25px;
+            }
+
+            .document {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="topbar">
+        <div class="container nav">
+            <a href="../index.html" class="back">
+                ← 返回主页
+            </a>
+
+            <div class="nav-label">
+                CASE STUDY / 01
+            </div>
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container">
+
+                <div class="eyebrow">
+                    AI × User Research × Data Analysis
+                </div>
+
+                <h1>
+                    一站式用研<br>
+                    数据分析平台
+                </h1>
+
+                <p class="hero-subtitle">
+                    将问卷设计、数据处理、指标分析与报告输出整合到一个工作流中，
+                    用 AI 与自动化能力减少重复性的数据处理工作，让研究人员更快从数据走向洞察。
+                </p>
+
+                <div class="hero-actions">
+                    <a href="../pdf/researchlab-prd.pdf"
+                       target="_blank"
+                       class="button button-primary">
+                        查看完整 PRD ↗
+                    </a>
+
+                    <a href="#solution"
+                       class="button button-secondary">
+                        查看项目方案 ↓
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Project Meta -->
+        <section class="container">
+            <div class="project-meta">
+
+                <div class="meta-item">
+                    <div class="meta-label">Role</div>
+                    <div class="meta-value">产品负责人</div>
+                </div>
+
+                <div class="meta-item">
+                    <div class="meta-label">Type</div>
+                    <div class="meta-value">AI 产品 / 用研工具</div>
+                </div>
+
+                <div class="meta-item">
+                    <div class="meta-label">Focus</div>
+                    <div class="meta-value">Research Workflow</div>
+                </div>
+
+                <div class="meta-item">
+                    <div class="meta-label">Output</div>
+                    <div class="meta-value">Web Product</div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 01 Background -->
+        <section class="section">
+            <div class="container">
+
+                <div class="section-header">
+                    <div class="section-number">01 / BACKGROUND</div>
+
+                    <div>
+                        <h2 class="section-title">
+                            为什么需要重新设计用研工作流？
+                        </h2>
+
+                        <p class="section-intro">
+                            传统用户研究通常需要在多个工具之间反复切换。
+                            问卷、Excel、统计软件和报告工具彼此割裂，
+                            数据在不同环节之间不断搬运。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="content">
+
+                    <p>
+                        在实际的用户研究流程中，从问卷设计到最终报告输出，
+                        往往需要经历数据收集、数据清洗、变量处理、指标计算、
+                        交叉分析以及报告整理等多个步骤。
+                    </p>
+
+                    <p>
+                        这些工作本身并不一定需要复杂的研究判断，
+                        但大量重复性的操作会占据研究人员的时间，
+                        同时也容易因为不同研究人员的处理方式不同而产生标准不一致的问题。
+                    </p>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 02 Problems -->
+        <section class="section">
+            <div class="container">
+
+                <div class="section-header">
+                    <div class="section-number">02 / PROBLEM</div>
+
+                    <div>
+                        <h2 class="section-title">
+                            我把问题归纳成三个层面
+                        </h2>
+
+                        <p class="section-intro">
+                            核心并不是“缺少一个分析工具”，
+                            而是整个研究流程缺少统一、连续的工作空间。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="problem-grid">
+
+                    <div class="problem-card">
+                        <div class="problem-index">01</div>
+
+                        <h3>工具高度割裂</h3>
+
+                        <p>
+                            问卷、数据清洗、统计分析和报告输出通常使用不同工具，
+                            研究人员需要不断进行数据迁移和格式转换。
+                        </p>
+                    </div>
+
+
+                    <div class="problem-card">
+                        <div class="problem-index">02</div>
+
+                        <h3>重复劳动较多</h3>
+
+                        <p>
+                            数据清洗、指标计算、加权处理以及图表整理存在大量重复性操作，
+                            研究人员难以把时间集中在真正的分析与洞察上。
+                        </p>
+                    </div>
+
+
+                    <div class="problem-card">
+                        <div class="problem-index">03</div>
+
+                        <h3>研究标准难统一</h3>
+
+                        <p>
+                            不同项目可能采用不同的数据处理和分析方式，
+                            影响研究结果的一致性，也增加了团队协作成本。
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 03 Product Goal -->
+        <section class="section">
+            <div class="container">
+
+                <div class="section-header">
+                    <div class="section-number">03 / GOAL</div>
+
+                    <div>
+                        <h2 class="section-title">
+                            产品目标
+                        </h2>
+
+                        <p class="section-intro">
+                            不是简单地把已有工具“搬到网页上”，
+                            而是重新组织用户研究的数据工作流。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="content">
+
+                    <p>
+                        产品希望将研究过程中高频、标准化的数据处理工作进行统一，
+                        让研究人员能够在同一个工作空间内完成从问卷到分析报告的主要流程。
+                    </p>
+
+                    <p>
+                        AI 的作用并不是替代研究人员进行最终判断，
+                        而是承担问卷生成、数据处理、指标计算和分析辅助等重复性工作，
+                        将研究人员从机械操作中释放出来。
+                    </p>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 04 Solution -->
+        <section class="section" id="solution">
+            <div class="container">
+
+                <div class="section-header">
+                    <div class="section-number">04 / SOLUTION</div>
+
+                    <div>
+                        <h2 class="section-title">
+                            从数据到洞察的一条完整链路
+                        </h2>
+
+                        <p class="section-intro">
+                            产品围绕用户研究实际工作流进行模块化设计，
+                            将原本分散的任务连接起来。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flow">
+
+                    <div class="flow-item">
+                        <div class="flow-num">01</div>
+                        <div class="flow-title">问卷生成</div>
+                    </div>
+
+                    <div class="flow-item">
+                        <div class="flow-num">02</div>
+                        <div class="flow-title">数据处理</div>
+                    </div>
+
+                    <div class="flow-item">
+                        <div class="flow-num">03</div>
+                        <div class="flow-title">核心指标</div>
+                    </div>
+
+                    <div class="flow-item">
+                        <div class="flow-num">04</div>
+                        <div class="flow-title">专题分析</div>
+                    </div>
+
+                    <div class="flow-item">
+                        <div class="flow-num">05</div>
+                        <div class="flow-title">报告输出</div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 05 Features -->
+        <section class="section">
+            <div class="container">
+
+                <div class="section-header">
+                    <div class="section-number">05 / PRODUCT</div>
+
+                    <div>
+                        <h2 class="section-title">
+                            核心产品模块
+                        </h2>
+
+                        <p class="section-intro">
+                            以研究任务为单位组织功能，而不是让用户在多个独立工具之间切换。
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="feature-list">
+
+                    <div class="feature">
+                        <div class="feature-num">01</div>
+
+                        <h3>问卷生成</h3>
+
+                        <p>
+                            根据研究目标辅助生成问卷结构与题目，
+                            减少研究人员从零开始搭建问卷的时间。
+                        </p>
+                    </div>
+
+
+                    <div class="feature">
+                        <div class="feature-num">02</div>
+
+                        <h3>数据处理</h3>
+
+                        <p>
+                            将数据清洗、变量处理等高频操作进行标准化，
+                            降低人工处理成本。
+                        </p>
+                    </div>
+
+
+                    <div class="feature">
+                        <div class="feature-num">03</div>
+
+                        <h3>核心指标</h3>
+
+                        <p>
+                            集中呈现研究中常用的核心指标，
+                            帮助研究人员快速判断整体数据表现。
+                        </p>
+                    </div>
+
+
+                    <div class="feature">
+                        <div class="feature-num">04</div>
+
+                        <h3>满意度分析</h3>
+
+                        <p>
+                            支持满意度相关数据的进一步拆解，
+                            帮助研究人员定位不同维度的表现差异。
+                        </p>
+                    </div>
+
+
+                    <div class="feature">
+                        <div class="feature-num">05</div>
+
+                        <h3>认知漏斗</h3>
+
+                        <p>
+                            从认知、了解、使用等不同阶段观察用户行为，
+                            将单一指标转化为完整的用户路径。
+                        </p>
+                    </div>
+
+
+                    <div class="feature">
+                        <div class="feature-num">06</div>
+
+                        <h3>活动影响</h3>
+
+                        <p>
+                            将活动相关数据纳入统一分析框架，
+                            支持研究人员评估活动与用户反馈之间的关系。
+                        </p>
+                    </div>
+
+
+                    <div class="feature">
+                        <div class="feature-num">07</div>
+
+                        <h3>分享与报告</h3>
+
+                        <p>
+                            将分析结果进行统一整理和输出，
+                            减少研究完成后的二次整理工作。
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 06 Product Thinking -->
+        <section class="section">
+            <div class="container">
+
+                <div class="highlight">
+
+                    <div class="highlight-label">
+                        PRODUCT THINKING
+                    </div>
+
+                    <h2>
+                        AI 不负责替研究人员做判断，
+                        而是负责减少判断之外的重复劳动。
+                    </h2>
+
+                    <p>
+                        这个项目的核心产品思路，是将用户研究中可以标准化的流程交给系统，
+                        同时保留研究人员对于研究问题、数据解释和最终洞察的控制权。
+                        因此产品设计重点放在工作流整合与分析效率，而不仅仅是增加 AI 功能。
+                    </p>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 07 Role -->
+        <section class="section">
+            <div class="container">
+
+                <div class="section-header">
+                    <div class="section-number">06 / MY ROLE</div>
+
+                    <div>
+                        <h2 class="section-title">
+                            我的工作
+                        </h2>
+
+                        <p class="section-intro">
+                            从问题定义到产品结构，再到实际数据分析流程，我负责整体方案设计。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="content">
+
+                    <div class="role-box">
+
+                        <ul>
+                            <li>
+                                梳理用户研究从问卷设计到报告输出的完整工作流
+                            </li>
+
+                            <li>
+                                识别高频、重复性的数据处理任务，并进行产品化拆解
+                            </li>
+
+                            <li>
+                                设计产品整体信息架构与核心功能模块
+                            </li>
+
+                            <li>
+                                设计问卷生成、数据处理、指标分析等核心流程
+                            </li>
+
+                            <li>
+                                将 AI 能力嵌入研究流程，而不是作为独立聊天工具存在
+                            </li>
+
+                            <li>
+                                参与数据分析逻辑、交互流程与产品原型设计
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 08 Outcome -->
+        <section class="section">
+            <div class="container">
+
+                <div class="section-header">
+                    <div class="section-number">07 / OUTCOME</div>
+
+                    <div>
+                        <h2 class="section-title">
+                            项目价值
+                        </h2>
+
+                        <p class="section-intro">
+                            产品最终关注的不是增加多少功能，
+                            而是能否让研究人员更快完成从数据处理到研究判断的转换。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="result-grid">
+
+                    <div class="result-card">
+                        <h3>流程整合</h3>
+
+                        <p>
+                            将问卷、数据处理、指标分析和报告输出连接到统一的研究工作流中。
+                        </p>
+                    </div>
+
+
+                    <div class="result-card">
+                        <h3>效率提升</h3>
+
+                        <p>
+                            通过自动化处理减少重复性的数据操作，
+                            将研究人员的时间更多投入到分析和洞察。
+                        </p>
+                    </div>
+
+
+                    <div class="result-card">
+                        <h3>标准化</h3>
+
+                        <p>
+                            将高频的数据处理与分析流程进行统一，
+                            降低不同项目之间的处理差异。
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 09 Document -->
+        <section class="section">
+            <div class="container">
+
+                <div class="section-header">
+                    <div class="section-number">08 / DOCUMENT</div>
+
+                    <div>
+                        <h2 class="section-title">
+                            完整产品文档
+                        </h2>
+
+                        <p class="section-intro">
+                            如果你希望进一步了解产品需求、功能结构和具体设计，可以查看完整 PRD。
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="document">
+
+                    <div class="document-icon">
+                        📄
+                    </div>
+
+                    <div class="document-info">
+                        <h3>
+                            ResearchLab Product Requirement Document
+                        </h3>
+
+                        <p>
+                            一站式用研数据分析平台 · 完整产品需求文档
+                        </p>
+                    </div>
+
+                    <a href="../pdf/researchlab-prd.pdf"
+                       target="_blank"
+                       class="button button-primary">
+                        打开 PDF ↗
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <footer>
+        <div class="container footer-inner">
+            <span>Shiying Liu · Product & User Research</span>
+
+            <a href="../index.html">
+                ← Back to homepage
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>
