@@ -1,0 +1,2017 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>社团招新智能匹配平台 | Shiying Liu</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #f7f8fa;
+            --card: #ffffff;
+            --text: #171717;
+            --secondary: #666666;
+            --muted: #999999;
+            --border: #e8e8e8;
+            --accent: #111111;
+            --soft: #f1f2f4;
+        }
+
+        body {
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                "PingFang SC",
+                "Hiragino Sans GB",
+                "Microsoft YaHei",
+                Arial,
+                sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, calc(100% - 48px));
+            margin: 0 auto;
+        }
+
+        /* =========================
+           Navigation
+        ========================= */
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(247, 248, 250, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .nav {
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .back {
+            font-size: 14px;
+            color: var(--secondary);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s ease;
+        }
+
+        .back:hover {
+            color: var(--text);
+        }
+
+        .nav-label {
+            font-size: 13px;
+            color: var(--muted);
+            letter-spacing: 0.08em;
+        }
+
+        /* =========================
+           Hero
+        ========================= */
+
+        .hero {
+            padding: 100px 0 80px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 12px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            max-width: 850px;
+            font-size: clamp(40px, 6vw, 70px);
+            line-height: 1.08;
+            letter-spacing: -0.045em;
+            font-weight: 700;
+            margin-bottom: 28px;
+        }
+
+        .hero-subtitle {
+            max-width: 760px;
+            font-size: 20px;
+            color: var(--secondary);
+            line-height: 1.65;
+            margin-bottom: 36px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0 18px;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: 0.2s ease;
+        }
+
+        .button-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .button-primary:hover {
+            opacity: 0.82;
+        }
+
+        .button-secondary {
+            border: 1px solid var(--border);
+            background: white;
+            color: var(--text);
+        }
+
+        .button-secondary:hover {
+            background: var(--soft);
+        }
+
+        /* =========================
+           Project Meta
+        ========================= */
+
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 100px;
+        }
+
+        .meta-item {
+            padding: 26px 20px;
+            border-right: 1px solid var(--border);
+        }
+
+        .meta-item:last-child {
+            border-right: none;
+        }
+
+        .meta-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 7px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .meta-value {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        /* =========================
+           Sections
+        ========================= */
+
+        .section {
+            padding: 0 0 100px;
+        }
+
+        .section-header {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 50px;
+            margin-bottom: 45px;
+        }
+
+        .section-number {
+            font-size: 13px;
+            color: var(--muted);
+            letter-spacing: 0.08em;
+        }
+
+        .section-title {
+            font-size: 34px;
+            line-height: 1.25;
+            letter-spacing: -0.025em;
+            margin-bottom: 16px;
+        }
+
+        .section-intro {
+            color: var(--secondary);
+            font-size: 16px;
+            max-width: 720px;
+        }
+
+        .content {
+            margin-left: 330px;
+            max-width: 720px;
+        }
+
+        .content p {
+            font-size: 16px;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        /* =========================
+           Problem Cards
+        ========================= */
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .problem-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .problem-index {
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        .problem-card h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .problem-card p {
+            font-size: 14px;
+            color: var(--secondary);
+            line-height: 1.7;
+        }
+
+        /* =========================
+           Positioning
+        ========================= */
+
+        .dark-box {
+            background: #111;
+            color: white;
+            border-radius: 14px;
+            padding: 55px;
+        }
+
+        .dark-label {
+            font-size: 12px;
+            color: #aaa;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .dark-title {
+            font-size: 32px;
+            line-height: 1.4;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        .dark-desc {
+            color: #c8c8c8;
+            max-width: 760px;
+            font-size: 15px;
+        }
+
+        /* =========================
+           Dual Side
+        ========================= */
+
+        .dual-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .dual-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 35px;
+        }
+
+        .dual-label {
+            display: inline-block;
+            padding: 5px 9px;
+            border-radius: 5px;
+            background: var(--soft);
+            color: #777;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            margin-bottom: 20px;
+        }
+
+        .dual-card h3 {
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+        .dual-card > p {
+            color: var(--secondary);
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .dual-list {
+            list-style: none;
+        }
+
+        .dual-list li {
+            padding: 12px 0;
+            border-top: 1px solid var(--border);
+            font-size: 14px;
+            color: #444;
+        }
+
+        .dual-list li::before {
+            content: "↗";
+            color: #999;
+            margin-right: 10px;
+        }
+
+        /* =========================
+           Matching Flow
+        ========================= */
+
+        .flow {
+            display: flex;
+            align-items: stretch;
+            gap: 12px;
+        }
+
+        .flow-step {
+            flex: 1;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 24px 20px;
+        }
+
+        .flow-number {
+            font-size: 11px;
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        .flow-step h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .flow-step p {
+            font-size: 13px;
+            color: var(--secondary);
+        }
+
+        .flow-arrow {
+            align-self: center;
+            color: #aaa;
+            font-size: 18px;
+        }
+
+        /* =========================
+           Feature List
+        ========================= */
+
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .feature {
+            display: grid;
+            grid-template-columns: 65px 210px 1fr;
+            gap: 25px;
+            align-items: start;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 25px;
+        }
+
+        .feature-num {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .feature h3 {
+            font-size: 16px;
+        }
+
+        .feature p {
+            font-size: 14px;
+            color: var(--secondary);
+            margin: 0;
+        }
+
+        .priority {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 3px 8px;
+            border-radius: 5px;
+            background: var(--soft);
+            color: #777;
+            font-size: 10px;
+            letter-spacing: 0.05em;
+        }
+
+        /* =========================
+           Recommendation
+        ========================= */
+
+        .recommendation {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 40px;
+        }
+
+        .recommendation-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            align-items: center;
+            padding-bottom: 28px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 28px;
+        }
+
+        .recommendation h3 {
+            font-size: 23px;
+        }
+
+        .match-rate {
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .recommendation p {
+            color: var(--secondary);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            padding: 6px 10px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 12px;
+            color: #555;
+        }
+
+        /* =========================
+           B端 Board
+        ========================= */
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .board-column {
+            background: #f0f1f3;
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .board-column h4 {
+            font-size: 13px;
+            margin-bottom: 13px;
+            color: #555;
+        }
+
+        .candidate {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 9px;
+        }
+
+        .candidate:last-child {
+            margin-bottom: 0;
+        }
+
+        .candidate-name {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .candidate-info {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .candidate-match {
+            margin-top: 9px;
+            font-size: 11px;
+            color: #666;
+        }
+
+        /* =========================
+           Value
+        ========================= */
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .value-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .value-number {
+            font-size: 35px;
+            line-height: 1;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .value-card h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .value-card p {
+            color: var(--secondary);
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* =========================
+           My Role
+        ========================= */
+
+        .role-box {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+        }
+
+        .role-box ul {
+            list-style: none;
+        }
+
+        .role-box li {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 15px;
+            color: #444;
+        }
+
+        .role-box li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .role-box li::before {
+            content: "↗";
+            margin-right: 12px;
+            color: #999;
+        }
+
+        /* =========================
+           Product Thinking
+        ========================= */
+
+        .thinking {
+            background: #111;
+            color: white;
+            border-radius: 14px;
+            padding: 55px;
+        }
+
+        .thinking-label {
+            font-size: 12px;
+            color: #aaa;
+            letter-spacing: 0.12em;
+            margin-bottom: 18px;
+        }
+
+        .thinking h2 {
+            font-size: 30px;
+            line-height: 1.4;
+            max-width: 800px;
+            margin-bottom: 18px;
+        }
+
+        .thinking p {
+            color: #c8c8c8;
+            max-width: 760px;
+            font-size: 15px;
+        }
+
+        /* =========================
+           Document
+        ========================= */
+
+        .document {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .document-icon {
+            width: 48px;
+            height: 48px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 20px;
+        }
+
+        .document-info {
+            flex: 1;
+        }
+
+        .document-info h3 {
+            font-size: 19px;
+            margin-bottom: 5px;
+        }
+
+        .document-info p {
+            font-size: 14px;
+            color: var(--secondary);
+            margin: 0;
+        }
+
+        /* =========================
+           Footer
+        ========================= */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 0 60px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        /* =========================
+           Responsive
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .container {
+                width: min(100% - 32px, 700px);
+            }
+
+            .hero {
+                padding: 70px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .project-meta {
+                grid-template-columns: repeat(2, 1fr);
+                margin-bottom: 70px;
+            }
+
+            .meta-item:nth-child(2) {
+                border-right: none;
+            }
+
+            .meta-item:nth-child(1),
+            .meta-item:nth-child(2) {
+                border-bottom: 1px solid var(--border);
+            }
+
+            .section {
+                padding-bottom: 70px;
+            }
+
+            .section-header {
+                display: block;
+                margin-bottom: 30px;
+            }
+
+            .section-number {
+                margin-bottom: 12px;
+            }
+
+            .content {
+                margin-left: 0;
+            }
+
+            .problem-grid,
+            .dual-grid,
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flow {
+                flex-direction: column;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+                align-self: center;
+            }
+
+            .feature {
+                grid-template-columns: 45px 1fr;
+                gap: 15px;
+            }
+
+            .feature p {
+                grid-column: 2;
+            }
+
+            .dark-box,
+            .thinking {
+                padding: 35px 25px;
+            }
+
+            .dark-title,
+            .thinking h2 {
+                font-size: 25px;
+            }
+
+            .board {
+                grid-template-columns: 1fr;
+            }
+
+            .document {
+                flex-wrap: wrap;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================
+         Navigation
+    ========================= -->
+
+    <header class="topbar">
+
+        <div class="container nav">
+
+            <a href="../index.html" class="back">
+                ← 返回主页
+            </a>
+
+            <div class="nav-label">
+                CASE STUDY / 03
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- =========================
+             Hero
+        ========================= -->
+
+        <section class="hero">
+
+            <div class="container">
+
+                <div class="eyebrow">
+                    AI PRODUCT × RECOMMENDATION × TWO-SIDED MARKET
+                </div>
+
+                <h1>
+                    社团招新<br>
+                    智能匹配平台
+                </h1>
+
+                <p class="hero-subtitle">
+                    面向高校新生与社团管理者的双边智能匹配平台。
+                    通过兴趣标签采集、向量匹配与招新流程自动化，
+                    连接“找社团”的学生与“找成员”的社团。
+                </p>
+
+                <div class="hero-actions">
+
+                    <a href="../pdf/club-matching-prd.pdf"
+                       target="_blank"
+                       class="button button-primary">
+                        查看完整 PRD ↗
+                    </a>
+
+                    <a href="#matching"
+                       class="button button-secondary">
+                        查看匹配机制 ↓
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             Meta
+        ========================= -->
+
+        <section class="container">
+
+            <div class="project-meta">
+
+                <div class="meta-item">
+                    <div class="meta-label">
+                        Role
+                    </div>
+                    <div class="meta-value">
+                        产品负责人
+                    </div>
+                </div>
+
+                <div class="meta-item">
+                    <div class="meta-label">
+                        Product
+                    </div>
+                    <div class="meta-value">
+                        Responsive Web / H5
+                    </div>
+                </div>
+
+                <div class="meta-item">
+                    <div class="meta-label">
+                        Users
+                    </div>
+                    <div class="meta-value">
+                        C端新生 / B端社团
+                    </div>
+                </div>
+
+                <div class="meta-item">
+                    <div class="meta-label">
+                        Priority
+                    </div>
+                    <div class="meta-value">
+                        T0 / 招新季核心产品
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             01 Background
+        ========================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-number">
+                        01 / BACKGROUND
+                    </div>
+
+                    <div>
+
+                        <h2 class="section-title">
+                            招新不是“信息发布”，而是一个匹配问题
+                        </h2>
+
+                        <p class="section-intro">
+                            传统社团招新通常是单向的信息展示。
+                            新生需要主动寻找社团，社团也需要人工筛选学生。
+                            两边都在承担本可以由系统解决的信息匹配成本。
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="content">
+
+                    <p>
+                        对新生而言，社团信息往往分散在海报、公众号和线下宣传中。
+                        当可选择的社团数量增加后，学生很难快速判断哪些社团真正符合自己的兴趣，
+                        容易陷入大量浏览和比较。
+                    </p>
+
+                    <p>
+                        对社团管理者而言，传统的纸质表格或零散问卷无法形成完整的招新数据闭环。
+                        从收集报名信息到筛选、通知面试、记录录取状态，都需要大量人工操作。
+                    </p>
+
+                    <p>
+                        因此，这个产品没有把核心定义成“社团信息平台”，
+                        而是将问题重新定义为一个双边匹配问题：
+                        <strong>让合适的学生更快找到合适的社团，同时让社团主动发现合适的学生。</strong>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             02 Problems
+        ========================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-number">
+                        02 / PROBLEM
+                    </div>
+
+                    <div>
+
+                        <h2 class="section-title">
+                            两端用户，两个核心问题
+                        </h2>
+
+                        <p class="section-intro">
+                            产品同时服务 C 端新生与 B 端社团，因此没有只解决其中一侧的效率问题。
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dual-grid">
+
+                    <div class="dual-card">
+
+                        <div class="dual-label">
+                            C-SIDE / STUDENT
+                        </div>
+
+                        <h3>
+                            新生找不到“适合自己的”
+                        </h3>
+
+                        <p>
+                            核心问题不是没有社团，而是选择太多、信息太散，
+                            学生缺少一个能够理解自己兴趣的筛选机制。
+                        </p>
+
+                        <ul class="dual-list">
+
+                            <li>
+                                社团信息高度碎片化
+                            </li>
+
+                            <li>
+                                面对大量社团产生选择困难
+                            </li>
+
+                            <li>
+                                缺少个性化推荐
+                            </li>
+
+                            <li>
+                                重复填写报名信息
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="dual-card">
+
+                        <div class="dual-label">
+                            B-SIDE / CLUB
+                        </div>
+
+                        <h3>
+                            社团找不到“真正匹配的”
+                        </h3>
+
+                        <p>
+                            社团需要的不只是更多报名者，而是与自身需求和兴趣标签相匹配的学生。
+                        </p>
+
+                        <ul class="dual-list">
+
+                            <li>
+                                人工筛选报名信息成本高
+                            </li>
+
+                            <li>
+                                面试邀约依赖人工通知
+                            </li>
+
+                            <li>
+                                招新状态难以统一追踪
+                            </li>
+
+                            <li>
+                                缺少主动触达候选人的机制
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             03 Positioning
+        ========================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="dark-box">
+
+                    <div class="dark-label">
+                        PRODUCT POSITIONING
+                    </div>
+
+                    <div class="dark-title">
+                        双边市场智能匹配引擎
+                        + 社团全生命周期管理工具
+                    </div>
+
+                    <p class="dark-desc">
+                        C 端通过兴趣标签建立用户画像，
+                        系统根据兴趣契合度生成推荐信息流；
+                        B 端通过期望标签定义社团需求，
+                        并使用招新看板管理从申请到录取的完整流程。
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             04 Matching
+        ========================= -->
+
+        <section class="section" id="matching">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-number">
+                        03 / MATCHING
+                    </div>
+
+                    <div>
+
+                        <h2 class="section-title">
+                            从兴趣标签开始建立匹配关系
+                        </h2>
+
+                        <p class="section-intro">
+                            产品将“我喜欢什么”转化为结构化标签，
+                            再通过标签与向量匹配生成个性化推荐。
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="flow">
+
+                    <div class="flow-step">
+
+                        <div class="flow-number">
+                            01
+                        </div>
+
+                        <h3>
+                            兴趣采集
+                        </h3>
+
+                        <p>
+                            新生首次进入产品时选择至少 3 个兴趣标签，
+                            建立基础兴趣画像。
+                        </p>
+
+                    </div>
+
+
+                    <div class="flow-arrow">
+                        →
+                    </div>
+
+
+                    <div class="flow-step">
+
+                        <div class="flow-number">
+                            02
+                        </div>
+
+                        <h3>
+                            标签标准化
+                        </h3>
+
+                        <p>
+                            通过统一标签字典管理学科、技能和兴趣爱好，
+                            减少双边标签歧义。
+                        </p>
+
+                    </div>
+
+
+                    <div class="flow-arrow">
+                        →
+                    </div>
+
+
+                    <div class="flow-step">
+
+                        <div class="flow-number">
+                            03
+                        </div>
+
+                        <h3>
+                            向量匹配
+                        </h3>
+
+                        <p>
+                            将学生兴趣与社团需求进行契合度计算，
+                            形成推荐排序。
+                        </p>
+
+                    </div>
+
+
+                    <div class="flow-arrow">
+                        →
+                    </div>
+
+
+                    <div class="flow-step">
+
+                        <div class="flow-number">
+                            04
+                        </div>
+
+                        <h3>
+                            推荐信息流
+                        </h3>
+
+                        <p>
+                            按匹配度降序展示社团，
+                            并在卡片中突出匹配百分比。
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             05 C Side
+        ========================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-number">
+                        04 / C-SIDE
+                    </div>
+
+                    <div>
+
+                        <h2 class="section-title">
+                            让新生从“搜索社团”
+                            变成“发现社团”
+                        </h2>
+
+                        <p class="section-intro">
+                            将主动搜索和个性化推荐结合起来，
+                            降低新生在大量社团中进行选择的成本。
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="feature-list">
+
+                    <div class="feature">
+
+                        <div class="feature-num">
+                            01
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                兴趣基线设定
+                            </h3>
+
+                            <span class="priority">
+                                P0
+                            </span>
+
+                        </div>
+
+                        <p>
+                            通过游戏化标签云引导新生选择至少 3 个兴趣特质，
+                            作为后续推荐的基础画像。
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-num">
+                            02
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                智能匹配信息流
+                            </h3>
+
+                            <span class="priority">
+                                P0
+                            </span>
+
+                        </div>
+
+                        <p>
+                            所有社团按照与学生兴趣的契合度进行排序，
+                            并通过匹配百分比帮助用户快速判断推荐理由。
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-num">
+                            03
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                一键报名
+                            </h3>
+
+                            <span class="priority">
+                                P0
+                            </span>
+
+                        </div>
+
+                        <p>
+                            用户浏览社团主页后可以直接报名，
+                            系统自动调用已有个人画像，减少重复填写。
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-num">
+                            04
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                日程与费用追踪
+                            </h3>
+
+                            <span class="priority">
+                                P1
+                            </span>
+
+                        </div>
+
+                        <p>
+                            面试通过后，用户可以继续查看破冰活动日程以及会费状态，
+                            将一次性报名延伸到后续社团参与过程。
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             06 Recommendation Example
+        ========================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-number">
+                        05 / RECOMMENDATION
+                    </div>
+
+                    <div>
+
+                        <h2 class="section-title">
+                            推荐结果不只是“社团列表”
+                        </h2>
+
+                        <p class="section-intro">
+                            通过匹配度与兴趣标签共同呈现推荐结果，
+                            帮助用户理解“为什么推荐给我”。
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="recommendation">
+
+                    <div class="recommendation-top">
+
+                        <div>
+                            <div class="dual-label">
+                                RECOMMENDED CLUB
+                            </div>
+
+                            <h3>
+                                计算机技术协会
+                            </h3>
+                        </div>
+
+                        <div class="match-rate">
+                            92%
+                        </div>
+
+                    </div>
+
+
+                    <p>
+                        推荐依据：你的兴趣标签与该社团的招新期望标签具有较高契合度。
+                    </p>
+
+
+                    <div class="tags">
+
+                        <span class="tag">
+                            技术开发
+                        </span>
+
+                        <span class="tag">
+                            编程
+                        </span>
+
+                        <span class="tag">
+                            科技创新
+                        </span>
+
+                        <span class="tag">
+                            项目实践
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             07 B Side
+        ========================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-number">
+                        06 / B-SIDE
+                    </div>
+
+                    <div>
+
+                        <h2 class="section-title">
+                            从“收到报名”
+                            到“管理招新流程”
+                        </h2>
+
+                        <p class="section-intro">
+                            B 端不是简单查看报名列表，
+                            而是将招新过程转化为可操作、可追踪的状态流。
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="board">
+
+                    <div class="board-column">
+
+                        <h4>
+                            新申请
+                        </h4>
+
+                        <div class="candidate">
+
+                            <div class="candidate-name">
+                                林同学
+                            </div>
+
+                            <div class="candidate-info">
+                                软件工程 · 大一
+                            </div>
+
+                            <div class="candidate-match">
+                                兴趣匹配 91%
+                            </div>
+
+                        </div>
+
+
+                        <div class="candidate">
+
+                            <div class="candidate-name">
+                                陈同学
+                            </div>
+
+                            <div class="candidate-info">
+                                信息管理 · 大一
+                            </div>
+
+                            <div class="candidate-match">
+                                兴趣匹配 87%
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="board-column">
+
+                        <h4>
+                            邀约面试
+                        </h4>
+
+                        <div class="candidate">
+
+                            <div class="candidate-name">
+                                王同学
+                            </div>
+
+                            <div class="candidate-info">
+                                计算机 · 大一
+                            </div>
+
+                            <div class="candidate-match">
+                                兴趣匹配 95%
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="board-column">
+
+                        <h4>
+                            已录取
+                        </h4>
+
+                        <div class="candidate">
+
+                            <div class="candidate-name">
+                                周同学
+                            </div>
+
+                            <div class="candidate-info">
+                                数学 · 大一
+                            </div>
+
+                            <div class="candidate-match">
+                                兴趣匹配 89%
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             08 Automation
+        ========================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="feature-list">
+
+                    <div class="feature">
+
+                        <div class="feature-num">
+                            01
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                拖拽式招新看板
+                            </h3>
+
+                            <span class="priority">
+                                P0
+                            </span>
+
+                        </div>
+
+                        <p>
+                            管理员通过类似 Trello 的看板，
+                            拖动学生卡片即可更新“新申请、面试中、已录取”等状态。
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-num">
+                            02
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                自动邀约与通知
+                            </h3>
+
+                            <span class="priority">
+                                P1
+                            </span>
+
+                        </div>
+
+                        <p>
+                            当学生被移动到“邀约面试”状态时，
+                            系统自动触发个性化邮件或站内信。
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-num">
+                            03
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                招新配置
+                            </h3>
+
+                            <span class="priority">
+                                P0
+                            </span>
+
+                        </div>
+
+                        <p>
+                            社团管理者可以自主编辑社团介绍、视觉信息，
+                            并配置当前招新所需要的期望标签。
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-num">
+                            04
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                标签统一字典
+                            </h3>
+
+                            <span class="priority">
+                                P0
+                            </span>
+
+                        </div>
+
+                        <p>
+                            通过全局标签字典统一学科、软技能与兴趣爱好等结构化标签，
+                            为双边匹配提供一致的数据基础。
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             09 Value
+        ========================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-number">
+                        07 / VALUE
+                    </div>
+
+                    <div>
+
+                        <h2 class="section-title">
+                            从一次招新，延伸到完整参与链路
+                        </h2>
+
+                        <p class="section-intro">
+                            产品价值不只是提高报名效率，而是让匹配、报名和后续管理形成连续的数据闭环。
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="value-grid">
+
+                    <div class="value-card">
+
+                        <div class="value-number">
+                            01
+                        </div>
+
+                        <h3>
+                            降低发现成本
+                        </h3>
+
+                        <p>
+                            通过兴趣标签与推荐排序，
+                            将新生发现合适社团的时间从数天压缩到几分钟。
+                        </p>
+
+                    </div>
+
+
+                    <div class="value-card">
+
+                        <div class="value-number">
+                            02
+                        </div>
+
+                        <h3>
+                            降低报名摩擦
+                        </h3>
+
+                        <p>
+                            复用用户画像，
+                            通过一键报名减少重复填写和信息输入。
+                        </p>
+
+                    </div>
+
+
+                    <div class="value-card">
+
+                        <div class="value-number">
+                            03
+                        </div>
+
+                        <h3>
+                            提高管理效率
+                        </h3>
+
+                        <p>
+                            将筛选、邀约、面试和录取状态集中到统一看板，
+                            降低社团管理成本。
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             10 My Role
+        ========================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-number">
+                        08 / MY ROLE
+                    </div>
+
+                    <div>
+
+                        <h2 class="section-title">
+                            我的工作
+                        </h2>
+
+                        <p class="section-intro">
+                            我负责从用户需求出发定义双边产品结构，
+                            并将匹配机制和招新流程转化为可执行的产品方案。
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="content">
+
+                    <div class="role-box">
+
+                        <ul>
+
+                            <li>
+                                分析 C 端新生与 B 端社团管理者的双边需求
+                            </li>
+
+                            <li>
+                                定义产品定位、用户角色与核心业务目标
+                            </li>
+
+                            <li>
+                                设计兴趣标签采集与用户画像建立流程
+                            </li>
+
+                            <li>
+                                设计基于兴趣标签和社团期望标签的匹配机制
+                            </li>
+
+                            <li>
+                                规划推荐信息流、匹配度展示和一键报名流程
+                            </li>
+
+                            <li>
+                                设计 B 端拖拽式招新看板与状态流转
+                            </li>
+
+                            <li>
+                                设计自动邀约、通知和社团招新配置等自动化能力
+                            </li>
+
+                            <li>
+                                通过统一标签字典解决双边数据结构不一致问题
+                            </li>
+
+                            <li>
+                                输出完整 PRD、业务流程与页面交互方案
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             11 Product Thinking
+        ========================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="thinking">
+
+                    <div class="thinking-label">
+                        PRODUCT THINKING
+                    </div>
+
+                    <h2>
+                        推荐系统的核心不是“推荐”，
+                        而是建立双方都愿意使用的数据基础。
+                    </h2>
+
+                    <p>
+                        这个项目中最重要的产品设计并不是单独做一个推荐列表，
+                        而是同时设计学生兴趣标签和社团需求标签，
+                        再通过统一标签体系建立双方可以被计算和比较的数据结构。
+                        在此基础上，推荐、主动邀约和招新流程管理才可以形成完整闭环。
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             12 Document
+        ========================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-number">
+                        09 / DOCUMENT
+                    </div>
+
+                    <div>
+
+                        <h2 class="section-title">
+                            完整产品文档
+                        </h2>
+
+                        <p class="section-intro">
+                            想进一步了解用户故事、功能优先级、匹配逻辑和页面交互，可以查看完整 PRD。
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="document">
+
+                    <div class="document-icon">
+                        📄
+                    </div>
+
+                    <div class="document-info">
+
+                        <h3>
+                            Club Recruitment Smart Matching Platform
+                        </h3>
+
+                        <p>
+                            社团招新智能匹配平台 · 完整产品需求文档
+                        </p>
+
+                    </div>
+
+                    <a href="../pdf/club-matching-prd.pdf"
+                       target="_blank"
+                       class="button button-primary">
+                        打开 PDF ↗
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         Footer
+    ========================= -->
+
+    <footer>
+
+        <div class="container footer-inner">
+
+            <span>
+                Shiying Liu · Product & User Research
+            </span>
+
+            <a href="../index.html">
+                ← Back to homepage
+            </a>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
